@@ -5,4 +5,4 @@ on:
 
 jobs:
   job1:
-    uses: sumeshsquare/actions-test/.github/workflows/wf1.yml
+    uses: ./actions-test/.github/workflows/wf1.yml
