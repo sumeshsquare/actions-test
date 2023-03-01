@@ -5,4 +5,4 @@ on:
 
 jobs:
   job1:
-    uses: actions-test/.github/workflows/wf1.yml
+    uses: actions-test/.github/workflows/wf1.yml@v1
