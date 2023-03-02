@@ -2,7 +2,13 @@ name: Call a reusable workflow and use its outputs
 
 on:
   workflow_dispatch:
-
+    inputs:
+      config-path:
+        required: true
+        type: string
 jobs:
   job1:
     uses: ./.github/workflows/wf1.yml
+    with: 
+      config-path: ${{ inputs.config-path }}
+      
