@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: ./.github/workflows/wf1.yml
+    - uses: actions/actions-test/.github/workflows/wf1.yml@v1
       with: 
         config-path: ${{ inputs.config-path }}
 
-    - uses: ./.github/workflows/wf1.yml
-      with: 
-        config-path: ${{ inputs.config-path }}
+#     - uses: ./.github/workflows/wf1.yml
+#       with: 
+#         config-path: ${{ inputs.config-path }}
