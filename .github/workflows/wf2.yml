@@ -10,18 +10,15 @@ on:
         required: true
         type: boolean
         default: false
-      Needs1:
-        required: false
-        type: string
-        default: ""
     
 jobs:
   build:
+      if: ${{ inputs.NeedFoo }}
       uses: ./.github/workflows/wf1.yml
       with: 
           config-path: ${{ inputs.config-path }}
   deploy:
-      needs: ${{ input.Needs1 }}
+      needs: build
       uses: ./.github/workflows/wf1.yml
       with: 
           config-path: ${{ inputs.config-path }}
