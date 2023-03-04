@@ -18,7 +18,6 @@ jobs:
       with: 
           config-path: ${{ inputs.config-path }}
   deploy:
-      needs: build
       uses: ./.github/workflows/wf1.yml
       with: 
           config-path: ${{ inputs.config-path }}
