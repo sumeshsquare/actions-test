@@ -6,8 +6,14 @@ on:
       config-path:
         required: true
         type: string
+      NeedFoo:
+        required: true
+        type: boolean
+        default: false
+    
 jobs:
   job1:
+    if: ${{ inputs.NeedFoo }}
     uses: ./.github/workflows/wf1.yml
     with: 
       config-path: ${{ inputs.config-path }}
