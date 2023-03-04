@@ -12,9 +12,13 @@ on:
         default: false
     
 jobs:
-  job1:
-    if: ${{ inputs.NeedFoo }}
-    uses: ./.github/workflows/wf1.yml
-    with: 
-      config-path: ${{ inputs.config-path }}
-      
+  steps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/wf1.yml
+        with: 
+          config-path: ${{ inputs.config-path }}
+
+      - uses: ./.github/workflows/wf3.yml
+        with: 
+          config-path: ${{ inputs.config-path }}
