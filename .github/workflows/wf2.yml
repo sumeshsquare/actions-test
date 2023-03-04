@@ -10,16 +10,18 @@ on:
         required: true
         type: boolean
         default: false
+      Needs1:
+        required: true
+        type: string
+        default: ""
     
 jobs:
-  steps:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/wf1.yml
-        with: 
+  build:
+      uses: ./.github/workflows/wf1.yml
+      with: 
           config-path: ${{ inputs.config-path }}
-
-      - uses: ./.github/workflows/wf3.yml
-        with: 
+  deploy:
+      needs: ${{ input.Needs1 }}
+      uses: ./.github/workflows/wf1.yml
+      with: 
           config-path: ${{ inputs.config-path }}
