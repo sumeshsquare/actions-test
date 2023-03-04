@@ -13,11 +13,13 @@ on:
     
 jobs:
   build:
-      if: ${{ inputs.NeedFoo }}
-      uses: ./.github/workflows/wf1.yml
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ./.github/workflows/wf1.yml
       with: 
-          config-path: ${{ inputs.config-path }}
-  deploy:
-      uses: ./.github/workflows/wf1.yml
+        config-path: ${{ inputs.config-path }}
+
+    - uses: ./.github/workflows/wf1.yml
       with: 
-          config-path: ${{ inputs.config-path }}
+        config-path: ${{ inputs.config-path }}
