@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vapi-config
+data:
+  cmd-arg: "SUMESH"
+  start.sh: "START VAPI"
+  start-worker.sh: "START WORKER"
+  start-status-worker.sh: "START STATUS WORKER"
+

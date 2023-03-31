@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vapi-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vapi
+  template:
+    metadata:
+      labels:
+        app: vapi
+    spec:
+      containers:
+        - name: node-test-1
+          image: node-test:latest
+          imagePullPolicy: IfNotPresent
+          args: ["$(CMD_ARG)"]
+          env:
+            - name: CMD_ARG
+              valueFrom:
+                configMapKeyRef:
+                  name: vapi-config
+                  key: start.sh
+          ports:
+            - containerPort: 3000
+
